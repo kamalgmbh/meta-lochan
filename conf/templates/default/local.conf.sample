@@ -1,0 +1,2 @@
+PREFERRED_PROVIDER_virtual/kernel = "linux-custom-lochan"
+PREFERRED_VERSION_linux-custom-lochan = "6.15%"
