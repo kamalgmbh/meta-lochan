@@ -1,0 +1,54 @@
+kamal@yocto:/media/nvme3/kamal/ws/bbb$  git clone -b scarthgap git://git.yoctoproject.org/poky
+Cloning into 'poky'...
+remote: Enumerating objects: 712287, done.
+remote: Counting objects: 100% (613/613), done.
+remote: Compressing objects: 100% (460/460), done.
+remote: Total 712287 (delta 308), reused 255 (delta 144), pack-reused 711674 (from 1)
+Receiving objects: 100% (712287/712287), 222.99 MiB | 5.43 MiB/s, done.
+Resolving deltas: 100% (518486/518486), done.
+kamal@yocto:/media/nvme3/kamal/ws/bbb$ 
+
+
+
+
+
+
+
+
+
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$  git clone -b scarthgap "git://git.openembedded.org/meta-openembedded"
+Cloning into 'meta-openembedded'...
+remote: Enumerating objects: 313664, done.
+remote: Total 313664 (delta 0), reused 0 (delta 0), pack-reused 313664 (from 1)
+Receiving objects: 100% (313664/313664), 77.16 MiB | 4.19 MiB/s, done.
+Resolving deltas: 100% (193845/193845), done.
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$
+
+
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$ git clone https://git.yoctoproject.org/meta-virtualization -b scarthgap
+
+Cloning into 'meta-virtualization'...
+remote: Enumerating objects: 22826, done.
+remote: Counting objects: 100% (145/145), done.
+remote: Compressing objects: 100% (142/142), done.
+remote: Total 22826 (delta 51), reused 0 (delta 0), pack-reused 22681 (from 1)
+Receiving objects: 100% (22826/22826), 9.57 MiB | 7.12 MiB/s, done.
+Resolving deltas: 100% (14478/14478), done.
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$
+kamal@yocto:/media/nvme3/kamal/ws/bbb/poky$
+
+
+
+
+Build commands 
+MACHINE='qemux86-64'
+source oe-init-build-env
+
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+ bitbake-layers add-layer ../meta-openembedded/meta-filesystems
+bitbake-layers add-layer ../meta-virtualization
+bitbake xen-image-minimal
